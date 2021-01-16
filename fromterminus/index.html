@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>From Terminus</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.js'></script>
+<script type="text/javascript" src="js/popup.js"></script>
+<!-- style stuff -->
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet' />
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- timelines stuff -->
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/timeline.js"></script>
+<!-- nice scroll -->
+
+<link rel="stylesheet" type="text/css" href="css/timeline.css">
+
+</head>
+<body>
+<div id='map'></div>
+<div id="testTimeline"> </div>
+<div id="nowContainer">
+	<div id="nowTip"></div>
+	<div id="nowBox">Now</div>
+</div>
+<button style="position:fixed; left:20px; bottom:20px;" id="vars">check variables</button>
+<div class="popContainer">
+	<div class="bg"></div>
+	<div class="fg">
+		<div id="introContainer">
+			<div class="slides" id="slide0">
+				<span class="introText">Welcome to</span>
+				<img class="intro" src="content/logo.jpg">
+				<!-- <span id="setup">This is the story of Father Thomas O'Reilly, Father of the Immaculate Conception Church in Atlanta, Georgia. </span> -->
+				<span class="next" id="next0">next</span>
+			</div>
+			<div class="slides" id="slide1" style="display:none;">
+				<span class="introText">The year is 1864</span>
+				<img class="intro" src="content/atlanta01.jpg">
+				<span class="next" id="next1">next</span>
+			</div>
+			<div class="slides" id="slide2" style="display:none;">
+				<img class="intro" src="content/battle.png">
+				<span class="introText">The civil war is rapidly approaching Atlanta</span><br>
+				<span class="next" id="next2">next</span>
+			</div>
+			<div class="slides" id="slide3" style="display:none;">
+				<img class="intro" src="content/oreilly.png">
+				<span class="introText">This is you, Father Thomas O'Reilly</span><br>
+				<span style="font-size:19px;" class="introText">A Catholic Priest in Atlanta, with a deep love of the city and the people in it.</span><br>
+				<span class="next" id="next3">next</span>
+			</div>
+			<div id="slide4" style="display:none;">
+				<img class="intro" src="content/pen.jpg">
+				<span class="introText">Follow his story, and help save his church, and Atlanta, in the wake of war.</span><br>
+				<span class="next" id="next4">start</span>
+			</div>
+			<div id="slide5" style="display:none;">
+				<span class="introText">GAME OVER!</span><br>
+				<span class="next">explore map</span>
+			</div>
+		</div>
+		<div id="ending">
+			<div class="close">x</div>
+			<h4>Thank you for playing!</h4>
+			<p>This simulation is a dramatization based on historical events of Father Thomas O'Reilly. How did you do verses the historical Father Thomas O'Reilly? </p>
+			<h4>How it really happened:</h4>
+			<img style="float:right; padding:0 10px; width:110px;" src="content/oreilly.jpg">
+			<p><i>"When General Sherman's army had reached the gates of the city in July 1864, Father O'Reilly went to the battlefields, ministering to the wounded, saying mass in the field, performing last rites, and providing whatever relief he could. [Father O'Reilly] used the Immaculate Conception Church as a hospital. Many of the wounded, especially in the Union Army, were recent Irish immigrants who found themselves involved in a fierce war for a country with which they were barely familiar. It was a great comfort to be ministered by a fellow Irishman.</p>
+
+			<p>Eventually Father O'Reilly found out Sherman planned to burn the churches as well as the city. Enraged, O'Reilly gained an audience with Sherman at his headquarters, which is now the site of the Carter Center and Presidential Library. The confrontation was unpleasant. O'Reilly, failing to persuade Sherman to spare the city, was told by Sherman that he was pondering whether to have the priest executed by firing squad.</p>
+
+			<p>O'Reilly approached Major General Henry Slocum, a member of Sherman's staff he had befriended. He argued with passionate eloquence that burning the churches was not a military necessity. In fact, their burning would be a sin against God. If Sherman persisted in burning the Catholic Church, all Catholics in the ranks of the Union Army were primed to mutiny. Ecumenical as well as determined, Father O'Reilly asked that all five of Atlanta's churches be spared as well as its City Hall and Court House. Reading Father O'Reilly's implied threat correctly, General Sherman granted the priest's request and placed the churches and designated official buildings under armed guard. Structures inside the boundaries of Loyd and Washington streets and Mitchell Street and the railroad were likewise spared because of their proximity to the churches."</i></p>
+			<h4 id="restart">Play Again?</h4><!-- <h4 id="next5">explore map?</h4> -->
+		</div>
+	</div>
+</div>
+<div id="logo">
+	<img width="150px;" src="logo.png">
+	<button id="refresh">play again?</button>
+</div>
+<script type="text/javascript" src="js/story.js"></script>
+</body>
+</html>

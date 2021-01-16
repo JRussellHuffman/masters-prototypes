@@ -1,0 +1,74 @@
+body {
+
+}
+
+.drawing {
+ padding: 0px;
+ margin: 0px;
+}
+
+#testTimeline {
+ position: fixed;
+ top:80px;
+ left:-63px;
+}
+
+.tlMajor {
+ left: 80px;
+ position: absolute;
+ width: 10px;
+ height: 10px;
+ background-color: #888;
+ border: 2px solid #eee;
+}
+
+.tlDateLabel {
+ position: absolute;
+ font-size: 12px;
+ color: #888;
+ text-align: left;
+ font-style: italic;
+ left: 100px;
+ width: 70px;
+}
+
+.tlLine {
+ position: absolute;
+ width: 2px;
+ background-color: #888;
+ top: 0px;
+ left: 85px;
+ border: 1px solid #aaa;
+}
+
+.tlDateDot {
+ left: 95px;
+ position: absolute;
+ width: 0;
+ height: 0;
+ border-top: 11px solid transparent;
+ border-bottom: 11px solid transparent;
+ border-right: 11px solid #5cac73;
+}
+
+.tlEventFlag {
+ left: 106px;
+ position: absolute;
+ width: 50px;
+ height: 14px;
+ background-color: #5cac73;
+ font-size: 12px;
+ padding: 4px 0px 4px 5px;
+ color: #fff;
+ cursor: pointer;
+}
+
+.tlEventExpand {
+ left: 180px;
+ position: absolute;
+ width: 200px;
+ background-color: #5cac73;
+ font-size: 12px;
+ padding: 0 10px 0 10px;
+ color: #fff;
+}
