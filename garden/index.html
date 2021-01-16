@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Guerrilla Gardening Monitor</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet' />
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript" src="js/function.js"></script>
+</head>
+<body>
+	<div id='map'></div>
+	<div id="leftSide">
+		<div class="button" id="plant">P</div>
+		<div class="button" id="location">L</div>
+		<div class="button" id="guide">G</div>
+		<div class="button" id="resources">R</div>
+	</div>
+	<div id="leftBack"></div>
+	<div id="rightSide">
+		<div class="rightContent">
+			<h2 class="title">Welcome to the Guerrilla Garden Monitor</h2>
+			<p>This website is dedicated to helping guerrilla gardeners find locations for guerrilla gardens and maintain gardens throughout the city. The marker on the map each represent a garden. The color of the markers represents the plant's current livelyhood: green is a happy garden, yellow gardens have needs, red gardens are dying, and black points indicate that there is curretly not garden in the area. To the left of the map are 4 buttons used to add new gardens to the map, add new locations, show the guerrilla gardening best practices, and to provide links to community based forums. This website is community drive so participation from gardeners like you makes it all possible. Good luck and happy digging!</p>
+			<img style="width:275px; height:183px; padding-bottom:20px;" src="images/flower.jpg">
+		</div>
+	</div>
+	<div class="popContainer">
+		<div class="bg"></div>
+		<div class="fg">
+			<div class="close">x</div>
+			<h2>header here</h2>
+			<p>content here...</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/map.js"></script>
+</body>
+</html>
