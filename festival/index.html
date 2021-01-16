@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>festival of lights prototype</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script src="js/froogaloop.js"></script>
+<!-- <script type="text/javascript" src="js/function.js"></script> -->
+<script type="text/javascript" src="js/content.js"></script>
+<script type="text/javascript" src="js/addDivs.js"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700,400|Lato:300,400' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+	<!-- <div class="header">
+		<button class="blue" onclick="toggleBlue()">toggle blue</button>
+		<button class="pink" onclick="togglePink()">toggle pink</button>
+		<button class="test" onclick="pressPlay()" id="play">play video</button>
+	</div> -->
+	<div class="columns">
+		<div class="timeSlider"></div>
+		<div class="timeline column" id="timey">
+			<div class="timeContent"></div>
+		</div>
+		<div class="left column" id="lefty">
+			<div class="spacer"></div>
+			<!-- <button class="clicky" onclick = "clicked()">click me</button> -->
+			<div class="leftContent"></div>
+			<div class="spacer"></div>
+		</div>
+		<div class="right column" id="righty">
+			<!-- tester iframe 
+			<iframe src="http://player.vimeo.com/video/80312270?api=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id="video"></iframe> -->
+
+			<div class="spacer"></div>
+			<div class="rightContent"></div>
+			<div class="spacer"></div>
+			<div class="bottom"></div>
+		</div>
+	</div>
+
+	<div class="currentLine"></div>
+
+	<script type="text/javascript" src="js/function.js"></script>
+	<script type="text/javascript" src="js/populate.js"></script>
+
+	<script type="text/javascript">
+
+	//video player stuff
+	var iframe = document.getElementById('video');
+
+	// $f == Froogaloop
+	var player = $f(iframe);
+
+	function pressPlay () {
+		player.api("play");
+		console.log("I did what you said!")
+	}
+
+	</script>
+</body>
+
+</html>
