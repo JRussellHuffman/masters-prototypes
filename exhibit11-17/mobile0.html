@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>mobile story 0</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/socket.js"></script>
+  <script type="text/javascript" src="js/content0.js"></script>
+  <script type="text/javascript" src="js/content1.js"></script>
+  <script type="text/javascript" src="js/content2.js"></script>
+  <script type="text/javascript" src="js/content3.js"></script>
+  <script type="text/javascript" src="js/populate.js"></script>
+  <script type="text/javascript" src="js/addDivs.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <!-- Fotorama -->
+  <script type="text/javascript">
+    var mobileNum = 0;
+  </script>
+  <link href="css/fotorama.css" rel="stylesheet">
+  <script src="js/fotorama.dev.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+
+      // 1. Initialize fotorama manually.
+      var $fotoramaDiv = $('.fotorama').fotorama();
+
+      // 2. Get the API object.
+      var fotorama = $fotoramaDiv.data('fotorama');
+
+      // 3. Inspect it in console.
+      console.log(fotorama.activeIndex);
+
+      // get index
+      $("div.fotorama__arr").click(function() {
+        console.log(fotorama.activeIndex);
+      })
+
+      $("div.fotorama__pointer").click(function() {
+        console.log(fotorama.activeIndex);
+      })
+
+
+  })
+
+  </script>
+</head>
+
+<body>
+
+<!-- Fotorama -->
+<div class="fotorama" data-width="100%" data-height="100%" data-loop="true" data-nav="false" data-autoplay="2000" data-stopautoplayontouch="true" data-max-width="100%">
+  <!-- fallback images -->
+  <img src="http://s.fotorama.io/okonechnikov/1-lo.jpg">
+  <img src="http://s.fotorama.io/okonechnikov/2-lo.jpg">
+  <img src="http://s.fotorama.io/okonechnikov/3-lo.jpg">
+</div>
+
+<!-- footer -->
+<div class="switch">
+  <a href="mobile0.html">
+    <button class="theme" id="active">Racism</button>
+  </a>
+  <a href="mobile1.html">
+    <button class="theme">Housing</button>
+  </a>
+  <a href="mobile2.html">
+    <button class="theme">Development</button>
+  </a>
+  <a href="mobile3.html">
+    <button class="theme">Activism</button>
+  </a>
+
+</div>
+
+<script type="text/javascript">
+
+var socket = io();
+
+//array for html
+var fotoramaArray = []
+
+//array of objects that containts the content html, for fotorama
+var contentArray = [
+  {html: '<div class="opener"> The Theme Racism: </div>'}
+]
+
+//array to store content
+var fotoStory = [];
+  //content constructor
+  for (var i = 0; i < stories0.length; i++) {
+    fotoStory[i] = new populate(stories0[i].itemName, stories0[i].itemSubhead, stories0[i].itemDescription, stories0[i].itemMedia, stories0[i].itemThumb, stories0[i].mediaType,  i+1);
+    //story in array
+    fotoramaArray.push(fotoStory[i].popFotorama());
+  }
+  //push content from holding array into object array
+  for (var i = 0; i < stories0.length-1; i++) {
+    var contentObject = {html: fotoramaArray[i]}
+    contentArray.push(contentObject);
+  }
+
+//put content into fotorama, will render on screen
+$('.fotorama').fotorama({
+  data: contentArray
+});
+
+// get info from fotorama.dev into each mobile window
+// socket.on('fotorama', function(msg){
+//     var messageArray = [msg, 2]
+//     console.log("this is " + msg);
+//     socket.emit("mobile0" ,messageArray);
+// });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/socket.js"></script>
+  <script type="text/javascript" src="js/populate.js"></script>
+  <!-- load content -->
+  <script type="text/javascript" src="js/content0.js"></script>
+  <script type="text/javascript" src="js/content1.js"></script>
+  <script type="text/javascript" src="js/content2.js"></script>
+  <script type="text/javascript" src="js/content3.js"></script>
+  <!-- add content -->
+  <script type="text/javascript" src="js/addDivs.js"></script>
+  <!-- style -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <style type="text/css">
+
+	img.content {
+	  	height: auto;
+	  	width: 100%;
+	  	max-width: 100%;
+	  	max-height: 100%;
+	  	padding:0;
+	}
+
+  	/*h2 {
+	    position: absolute;
+	    padding: 0 5%;
+	    width: 90%;
+	}*/
+	div.story {
+		text-align: center;
+	}
+
+	div.buttons {
+		position: fixed;
+		z-index:200;
+		top:20px;
+		left: 20px;
+	}
+
+  </style>
+  
+</head>
+<body>
+
+  <div class="content"></div>
+  <div class="footer">
+  	<span class="bottomLeft">something else here?</span>
+  	<span class="bottomRight">Copyright info here</span>
+  </div>
+
+  <script type="text/javascript">
+
+  //buttons for index (eventually)
+
+ 	var currentIndex = 0;
+
+ 	var storyWidth; //each individual cell or story
+ 	var divWidth = []; //entire story div
+ 	var windowWidth;
+
+ 	$(document).ready(function(){
+ 		for (var i = 0; i < 4; i++) { //can I find a better way than 4?
+ 			divWidth.push($("div#container" + i).width());
+ 		};
+ 		console.log(divWidth);
+
+	  	windowWidth = $(window).width();
+	  	//console.log(windowWidth);
+	  	//var contentWidth = divWidth[1];
+	  	storyWidth = $("div.story").width();
+
+	  	//setup opening divs
+	  	$("div#screen00").html('<span class="title"> Racism: </span>');
+	  	$("div#screen01").html('<span class="title"> Housing: </span>');
+	  	$("div#screen02").html('<span class="title"> Mobility: </span>');
+	  	$("div#screen03").html('<span class="title"> Development: </span>');
+	})
+
+	function moveActive (e, f) {
+		$("div#active" + f).animate({
+ 			"left":(storyWidth+2) * e, // add two to include border
+ 		})
+	}
+
+	function scrollNarrative (e, f) {
+		var totalScroll = divWidth[f] - windowWidth+2; //add two for border
+		//console.log(totalScroll);
+		var percentageScroll = [e/(stories0.length-1), e/(stories1.length-1), e/(stories2.length-1), e/(stories3.length-1)];
+		// this probably needs to be changed, per narrative
+		var scrollSegment = totalScroll * percentageScroll[f];
+		console.log("scroll nar print : " + scrollSegment)
+		$("div#nar" + f).animate({
+			scrollLeft : scrollSegment
+		});
+	}
+
+  </script>
+
+  <script type="text/javascript">
+
+  var socket = io();
+  var current = 0;
+
+
+
+  socket.on('newActive', function(msg){
+  	console.log(msg);
+  	current = msg;
+  });
+
+  // fotorama socket
+
+  socket.on('index0', function(msg){
+  	console.log(msg[0]);
+  	console.log(msg[1]);
+  	scrollNarrative(msg[0], msg[1]);
+	moveActive(msg[0], msg[1]);
+	console.log(msg);
+  });
+
+  </script>
+
+</body>
+</html>

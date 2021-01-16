@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/socket.js"></script>
+  <script type="text/javascript" src="js/populate.js"></script>
+  <script type="text/javascript" src="js/content.js"></script>
+  <script type="text/javascript" src="js/addDivs.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <style type="text/css">
+
+	img.content {
+	  	height: auto;
+	  	width: 100%;
+	}
+
+  	h2 {
+	    position: absolute;
+	    padding: 0 5%;
+	    width: 90%;
+	}
+	div.story {
+		text-align: center;
+	}
+
+  </style>
+  
+</head>
+<body>
+
+  <div class="content"></div>
+
+  <script type="text/javascript">
+
+  var socket = io();
+  var divWidth;
+  var current = 0;
+
+  $(document).ready(function(){
+  	divWidth = $("div.storyContainer").width();
+  	contentWidth = divWidth;
+  })
+
+	//get scroll from device
+	// this is currently hardcoded 1 for each narrative
+		socket.on('counter0', function(msg){
+		  	var finalScroll = msg * (divWidth*0.355);
+		  	var activePos = msg * (contentWidth);
+		  	console.log(msg);
+		    $("div#nar0").scrollLeft(finalScroll);
+		    $("div#active0").css({
+		    	"left":activePos,
+		    });
+		    console.log("0 is: " + finalScroll);
+		});
+
+		socket.on('counter1', function(msg){
+		  	var finalScroll = msg * (divWidth*0.48);
+		  	var activePos = msg * (contentWidth);
+		  	console.log(msg);
+		    $("div#nar1").scrollLeft(finalScroll);
+		    $("div#active1").css({
+		    	"left":activePos,
+		    });
+		    console.log("1 is: " + finalScroll);
+		});
+
+		socket.on('counter2', function(msg){
+		  	var finalScroll = msg * (divWidth*0.48);
+		  	var activePos = msg * (contentWidth);
+		  	console.log(msg);
+		    $("div#nar2").scrollLeft(finalScroll);
+		    $("div#active2").css({
+		    	"left":activePos,
+		    });
+		    console.log("2 is: " + finalScroll);
+		});
+
+		socket.on('counter3', function(msg){
+		  	var finalScroll = msg * (divWidth*0.48);
+		  	var activePos = msg * (contentWidth);
+		  	console.log(msg);
+		    $("div#nar3").scrollLeft(finalScroll);
+		    $("div#active3").css({
+		    	"left":activePos,
+		    });
+		    console.log("3 is: " + finalScroll);
+		});
+
+  socket.on('newActive', function(msg){
+  	console.log(msg);
+  	current = msg;
+  });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+@font-face {
+    font-family: archerItal;
+    src: url(Archer-BookItal-Pro.otf);
+}
+
+body {
+  margin:0;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+}
+
+
+button {
+  margin:10px;
+  width: 80px;
+}
+
+span {
+  margin:10px;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+iframe {
+  padding:5%;
+  width:55%;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+h1 {
+  font-family: "Helvetica Neue", helvetica, arial;
+}
+
+h2 {
+  font-family: archerItal, "Helvetica Neue", helvetica;
+  color: #7fb98d;
+}
+
+h2.name {
+    font-family: archerItal, helvetica;
+    position: absolute;
+    padding: 10px 5%;
+    width: 90%;
+    bottom:0;
+    margin:0;
+    background: #7fb98d;
+    z-index: 1;
+    font-size: 16px;
+    min-height: 38px;
+    color:#fff;
+    opacity: .9;
+}
+
+span.title {
+    background: #7fb98d;
+    display: block;
+    width: 100%;
+    margin: 0;
+    font-size: 42px;
+    height: 100%;
+    padding-top: 31%;
+    color: white;
+    font-weight: 200;
+    opacity: .8;
+}
+
+img.content {
+    max-width: 55%;
+    max-height: 80%;
+    padding: 5%;
+}
+
+div.mobileContent {
+  position: fixed;
+  top: 0;
+  left: 10%;
+  width: 90%;
+  height: 100%;
+  overflow: scroll;
+}
+
+div.narrative {
+  position: relative;
+  width: 100%;
+  height: 262px;
+  box-sizing: border-box;
+  border:1px solid black;
+  overflow: scroll;
+}
+
+div.story {
+  position: relative;
+  float: left;
+  height: 100%;
+  width: 340px;
+  box-sizing: border-box;
+  border-left:1px solid black;
+  border-right:1px solid black;
+  overflow: hidden;
+}
+
+div.spacer {
+  
+}
+
+div.storyContainer {
+  height: 100%;
+}
+
+div.mobileContainer {
+  height: 100%;
+}
+
+div.mobileStory {
+  position: relative;
+  float: left;
+  height: 100%;
+  width: 800px;
+  box-sizing: border-box;
+  border:1px solid black;
+}
+
+div.active {
+  position: absolute;
+  width: 340px;
+  height: 100%;
+  border: 1px solid red;
+  box-sizing: border-box;
+  z-index: 2;
+  left: 0;
+  top:0;
+}
+
+div.narrativeButtons {
+  position: fixed;
+  left:0;
+  top:0;
+  width:10%;
+  height: 100%;
+  background: #99f;
+}
+
+div.text {
+    float: right;
+    padding: 0 2.5%;
+    width: 30%;
+    height: 90%;
+    background: #323232;
+    color:white;
+    overflow: scroll;
+}
+
+div.footer {
+  position: fixed;
+  left: 0;
+  bottom:0;
+  width: 100%;
+  height: 32px;
+  background: #323232;
+}
+span.bottomRight {
+    color: white;
+    float: right;
+    padding: 0 15px;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+span.bottomLeft{
+    color: white;
+    float: left;
+    padding: 0 15px;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+div.opener {
+    background: #7fb98d;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 26%;
+    color: white;
+    font-size: 48px;
+    font-weight: 100;
+}
+
+div.audioContainer {
+    width: 65%;
+    text-align: center;
+    padding-top: 34%;
+}
+
+div.switch {
+  position: fixed;
+  bottom:0;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  background: #7fb98d;
+  z-index: 1;
+  border-top:1px solid black;
+}
+
+button.theme {
+    position: relative;
+    float: left;
+    width:auto;
+    background: #8cc79a;
+    box-shadow: 1px 1px 1px #619e6f;
+    padding: 10px 20px;
+    margin: 15px 20px;
+}
+
+button#active {
+  border:1px solid red;
+}
+
+
+
+
